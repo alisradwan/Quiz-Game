@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: "nova square", cursive; */
+}
+
+:root {
+  --hue-neutral: 111111;
+  --hue-wrong: red;
+  --hue-correct: rgb(55, 255, 0);
+}
+
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#question {
+  font-size: 30px;
+}
+
+body.correct {
+  background-color: var(--hue-correct);
+}
+body.wrong {
+  background-color: var(--hue-wrong);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  width: 100vw;
+  color: white;
+  max-width: 80%;
+  background-color: hsl(var(--hue), 100%, 20%);
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 0 1000px 100px;
+  margin-top: 100px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 15px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.btn {
+  height: 10vh;
+  width: 20vw;
+  font-size: 30px;
+  --hue: var(--hue-neutral);
+  border: 3px solid hsl(var(--hue), 100%, 10%);
+  background-color: rgb(158, 158, 158);
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: rgb(12, 12, 12);
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgb(231, 231, 9);
+  transition: 320ms;
+  transform: scale(1.2);
+}
+
+.btn.correct {
+  background-color: var(--hue-correct);
+}
+
+.btn.wrong {
+  background-color: var(--hue-wrong);
+}
+
+.next-btn,
+.start-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.hide {
+  display: none;
+}
+
+.hud-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  font-size: 50px;
+}
+
+.Username {
+  width: 80vw;
+  height: 80vh;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(241, 241, 241);
+  box-shadow: 0 0 1000px 100px;
+}
+
+#User {
+  display: flex;
+  width: 50vw;
+  height: 50px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+#Save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(158, 158, 158);
+  font-size: 30px;
+  width: 300px;
+  height: 70px;
+  color: black;
+  text-decoration: none;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+#Save:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgb(231, 231, 9);
+  transition: 320ms;
+  transform: scale(1.2);
+}
+
+#highscore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(158, 158, 158);
+  font-size: 30px;
+  width: 300px;
+  height: 70px;
+  color: black;
+  text-decoration: none;
+  margin-top: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+#highscore:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgb(231, 231, 9);
+  transition: 320ms;
+  transform: scale(1.2);
+}
+
+.start {
+  height: 80vh;
+  width: 70vw;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 1000px 100px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.playnow {
+  background-color: rgb(158, 158, 158);
+  /* background-color: rgb(0, 0, 136); */
+  font-size: 70px;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  padding: 10px 90px;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.playnow:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgb(231, 231, 9);
+  transition: 320ms;
+  transform: scale(1.5);
+  background: linear-gradient(90deg, red);
+}
+
+@media only screen and (max-width: 600px) {
+  body,
+  .btn,
+  #User,
+  #Save,
+  #highscore,
+  .Username h1 {
+    background-color: rgb(97, 15, 116);
+  }
+
+  .Username {
+    display: flex;
+    width: 900px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 1000px 100px;
+  }
+  .container {
+    flex-grow: 1;
+    margin: 0 auto 30px;
+    max-width: 935px;
+    width: 100%;
+  }
+}
