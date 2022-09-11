@@ -14,25 +14,31 @@
         <h3 id="time"></h3>
         <div class="hud-item">
           <p class="hud-prefix">score</p>
-          <h1 class="hud-main-text" id="score">0</h1>
+          <h5 class="hud-main-text" id="score">0</h5>
         </div>
         <div id="question">question</div>
         <div id="answer-buttons" class="btn-grid">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
+          <button class="btn">Answer</button>
+          <button class="btn">Answer</button>
+          <button class="btn">Answer</button>
+          <button class="btn">Answer</button>
         </div>
       </div>
       <div class="controls">
         <button id="start-btn" class="start-btn btn">Start</button>
-        <a href="" id="highscore">Highscore</a>
+        <a href="" id="highscore" class="hide">Highscore</a>
         <button id="next-btn" class="next-btn btn hide">Next</button>
       </div>
-    </div>
-
-    <div class="score">
-      <span id="right-answers"></span>
+      <form class="Userame" action="login.html" method="post">
+        <h1>Username:</h1>
+        <input
+          type="text"
+          id="User"
+          name=""
+          placeholder=" Enter your name: CLICK START"
+        />
+      </form>
+      <ul id="scorelist"></ul>
     </div>
     <script src="./Assets/js/script.js"></script>
   </body>
