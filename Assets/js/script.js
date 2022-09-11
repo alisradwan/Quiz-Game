@@ -3,37 +3,34 @@ var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var questionContainer = document.getElementById("question-container");
 var questionElement = document.getElementById("question");
+var highscore = document.getElementById("highscore");
 var answerButtonsElement = document.getElementById("answer-buttons");
+var Userame = document.querySelector(".Userame");
+var savebtn = document.getElementById("Save");
+var User = document.getElementById("User");
 let shuffledQuestions, currentQuestionIndext;
 var secondsLeft = 60;
 var timeoutt = 0;
-// // let quizScore = 0;
-// let questionCounter = 1;
-// let scoreCounter = 5;
-// let score = 5;
-// let selectedAnswer;
-// let maxQuestions = 10;
+let currentquestion = 0;
+var scoreDisplay = document.getElementById("score");
+
+let score = 0;
+
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndext++;
   setNextQuestion();
-  // userScore();
-  // timeout();
 });
 function startGame() {
   startButton.classList.add("hide");
+  Userame.setAttribute("class", "hide");
   shuffledQuestions = question.sort(() => Math.random() - 0.5);
   currentQuestionIndext = 0;
   questionContainer.classList.remove("hide");
+
   setNextQuestion();
-  // secondsLeft = 5;
   timeout();
-
-  // userScore();
 }
-
-// timeout();
-// setInterval(timeout, 1000);
 
 function timeout() {
   var timerInterval = setInterval(function () {
@@ -63,7 +60,7 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     } else {
-      secondsLeft < 8;
+      secondsLeft--;
     }
     button.addEventListener("click", selectAnswer);
     answerButtonsElement.appendChild(button);
@@ -81,10 +78,15 @@ function resetState() {
 function selectAnswer(e) {
   var selectedButton = e.target;
   var correct = selectedButton.dataset.correct;
+  console.log(selectedButton.dataset);
   setStatusClass(document.body, correct);
+  score = score - 1;
+  scoreDisplay.innerHTML = score;
+
   Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
+
   if (shuffledQuestions.length > currentQuestionIndext + 1) {
     nextButton.classList.remove("hide");
   } else {
@@ -98,21 +100,17 @@ function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
     element.classList.add("correct");
+    score = score + 1;
+    scoreDisplay.innerHTML = score;
   } else {
+    console.log(setStatusClass);
     element.classList.add("wrong");
   }
   nextButton.classList.remove("hide");
 }
 
-// function userScore() {
-//   if (selectAnswer === "correct") {
-//     scoreCounter++;
-//     setStatusClass.innerText = +score;
-//   }
-//   console.log("Increase Score");
-// }
-
 function clearStatusClass(element) {
+  console.log(element);
   element.classList.remove("correct");
   element.classList.remove("wrong");
 }
@@ -129,7 +127,7 @@ var question = [
     ],
   },
   {
-    question: "The Tallest byliding in the world is located in which city?",
+    question: "The Tallest building in the world is located in which city?",
     answer: [
       { Text: "Vancouver", correct: false },
       { Text: "Portland", correct: false },
@@ -158,22 +156,25 @@ var question = [
   },
 ];
 
-// var timeEl = document.querySelector(".container");
+function safehighscore() {
+  var newscore = {
+    scoreEl: score,
+    name: User.value,
+  };
+  var scoreArray = JSON.parse(localStorage.getItem("scores")) || [];
+  scoreArray.push(newscore);
+  localStorage.setItem("scores", JSON.stringify(scoreArray));
+}
 
-// // Selects element by id
+highscore.onclick = safehighscore;
 
-// var secondsLeft = 10;
-
-// function setTime() {
-//   // Sets interval in variable
-//   var timerInterval = setInterval(function () {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
-
-//     if (secondsLeft === 0) {
-//       // Stops execution of action at set interval
-//       clearInterval(timerInterval);
-//       // Calls function to create and append image
-//     }
-//   }, 1000);
-// }
+function showscore() {
+  var scoreArray = JSON.parse(localStorage.getItem("scores")) || [];
+  scoreArray.forEach(function (Item) {
+    var listitem = document.createElement("li");
+    listitem.textContent = Item.name + ":" + Item.scoreEl;
+    var socrelist = document.getElementById("scorelist");
+    socrelist.appendChild(listitem);
+  });
+}
+showscore();

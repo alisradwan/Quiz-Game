@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  /* font-family: "nova square", cursive; */
+  font-family: "nova square", cursive;
 }
 
 :root {
@@ -44,7 +44,7 @@ body.wrong {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 70vh;
+  height: 100vh;
   width: 100vw;
   color: white;
   max-width: 80%;
@@ -115,16 +115,13 @@ body.wrong {
   font-size: 50px;
 }
 
-.Username {
-  width: 80vw;
-  height: 80vh;
-  border-radius: 40px;
+.Userame {
+  width: 40vw;
   display: flex;
   justify-content: center;
+  /* flex-direction: column; */
   align-items: center;
-  flex-direction: column;
-  color: rgb(241, 241, 241);
-  box-shadow: 0 0 1000px 100px;
+  /* font-size: 10px; */
 }
 
 #User {
@@ -176,6 +173,19 @@ body.wrong {
   transform: scale(1.2);
 }
 
+li {
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 40px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px solid rgb(0, 0, 0);
+  background-color: yellow;
+  color: black;
+}
+
 .start {
   height: 80vh;
   width: 70vw;
@@ -200,8 +210,8 @@ body.wrong {
 }
 
 h1 {
-  font-size: 50px;
-  margin-bottom: 50px;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .playnow {
