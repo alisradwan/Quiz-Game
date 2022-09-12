@@ -14,5 +14,5 @@ I learned many important fundementals of javascript,HTML,CSS creating this proje
 
 ## Submission
 
-- GitHub Repo URL: https://alisradwan.github.io/Quiz-Game/
-- Deplyed URL: https://alisradwan.github.io/Password-Generator/
+- GitHub Repo URL: https://github.com/alisradwan/Quiz-Game
+- Deplyed URL: https://alisradwan.github.io/Quiz-Game/
